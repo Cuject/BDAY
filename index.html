@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Brithday Darling :33</title>
+</head>
+<style>
+
+.candle{
+    height: 28px;
+    position: absolute;
+}
+
+.gone{
+    display: none;
+}
+
+</style>
+<body onload="count()" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;">
+    <label>Input Code:</label>
+    <input type="text" id="codes">
+    <button onclick="is_code()">check code</button>
+    <div id="numCandles"></div>
+    <div id="numCharges"></div> 
+
+    <img src="Grids.png" style="position: absolute; height: 500px; left: 950px;">
+    <img src="schema.png" style="position: absolute; height: 500px; left: 650px" >
+    
+    <img src="strawbCake.png"      style="height: 400px; position: absolute; top: 300px;" alt="blow the candles :DD">
+    <a href="subsites/red.html"    style="color: red;">r</a>
+    <a href="subsites/orange.html" style="color: orange;">o</a>
+    <a href="subsites/yellow.html" style="color: yellow;">y</a>
+    <a href="subsites/green.html"  style="color: green;">g</a>
+    <a href="subsites/blue.html"   style="color: blue;">b</a>
+    <a href="subsites/violet.html" style="color: violet;">v</a>
+
+        
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 60px; top: 280px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 83px; top: 280px" >
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 110px; top: 277px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 135px; top: 280px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 158px; top: 280px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 180px; top: 278px" >
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 200px; top: 278px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 230px; top: 280px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 253px; top: 280px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 280px; top: 280px" >
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 310px; top: 280px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 338px; top: 280px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 360px; top: 280px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 381px; top: 282px" >
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 412px; top: 284px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 435px; top: 283px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 462px; top: 283px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 489px; top: 284px" >
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 517px; top: 283px">
+    <img src="flame.png" class = candle onclick="on_blow(), count(), eat()" style=" left: 548px; top: 284px">
+    
+
+    
+    <a id = "EAT" href="https://drive.google.com/drive/folders/1NSnf3upckbW0ZuhQdUs9liOTqFImqHh5?usp=sharing" style="display: none;">eat the cake :DD</a>
+
+    
+
+
+    <script>
+        
+        var codeList = ["god", "a8c7e6", "zed", "cbef2454", "gkhjiijhkg2x1xzxyx", "dfimywngduufm"]
+
+        var charge = 0
+        function add_charge(){
+            charge += 1
+            document.getElementById('numCharges').innerHTML = "Charges Left: " + String(charge)
+        }
+
+        function on_blow(){
+            if(charge > 0){
+                document.querySelector('.candle').className = 'gone'
+                charge -= 1
+            }
+            
+        }
+
+
+
+        function count(){
+            //console.log(document.querySelectorAll('.candle').length)
+            
+            document.getElementById('numCandles').innerHTML = "Candles Left: " + String(document.querySelectorAll('.candle').length)
+            
+            document.getElementById('numCharges').innerHTML = "Charges Left: " + String(charge)
+            
+        }
+
+        function charges(){
+            charge += 1;
+        }
+
+        function eat(){
+            if(document.querySelectorAll('.candle').length == 0){
+                console.log("ALL CANDLES OUT")
+                document.getElementById('EAT').style.display = "flex"
+            }
+        }
+
+        function is_code(){
+            //console.log(codeList)
+            //console.log(document.getElementById('codes').value)
+            if(codeList.includes(document.getElementById('codes').value)){
+
+                if(document.getElementById('codes').value == "god"){charge += 1}
+                if(document.getElementById('codes').value == "a8c7e6"){charge += 2}
+                if(document.getElementById('codes').value == "zed"){charge += 3}
+                if(document.getElementById('codes').value == "cbef2454"){charge += 4}
+                if(document.getElementById('codes').value == "gkhjiijhkg2x1xzxyx"){charge += 5}
+                if(document.getElementById('codes').value == "dfimywngduufm"){charge += 5}
+
+                codeList = codeList.filter(function(item) {return item !== document.getElementById('codes').value})
+            }
+            document.getElementById('numCharges').innerHTML = "Charges Left: " + String(charge)
+            console.log(codeList)
+
+        }
+
+        
+    </script>
+</body>
+</html>
